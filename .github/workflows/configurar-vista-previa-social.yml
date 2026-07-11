@@ -1,0 +1,64 @@
+name: Configurar vista previa social
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  configurar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar sitio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Agregar metadatos de WhatsApp y redes sociales
+        shell: python
+        run: |
+          from pathlib import Path
+
+          archivo = Path("index.html")
+          contenido = archivo.read_text(encoding="utf-8")
+
+          if 'property="og:image"' in contenido:
+              print("La vista previa social ya está configurada.")
+              raise SystemExit(0)
+
+          marcador = '<meta property="og:url" content="https://www.ojcapitalpatrimonial.com/">'
+          metadatos = '''
+          <meta property="og:site_name" content="OJ Capital Patrimonial Inmobiliario">
+          <meta property="og:image" content="https://www.ojcapitalpatrimonial.com/assets/oj-capital-social-card.jpg?v=1">
+          <meta property="og:image:secure_url" content="https://www.ojcapitalpatrimonial.com/assets/oj-capital-social-card.jpg?v=1">
+          <meta property="og:image:type" content="image/jpeg">
+          <meta property="og:image:width" content="1200">
+          <meta property="og:image:height" content="630">
+          <meta property="og:image:alt" content="OJ Capital Patrimonial Inmobiliario — Patrimonio que trasciende">
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="OJ Capital Patrimonial Inmobiliario">
+          <meta name="twitter:description" content="Venta, renta e inversión inmobiliaria con visión patrimonial.">
+          <meta name="twitter:image" content="https://www.ojcapitalpatrimonial.com/assets/oj-capital-social-card.jpg?v=1">
+          '''.strip()
+
+          if marcador not in contenido:
+              raise SystemExit("No se encontró la etiqueta og:url en index.html")
+
+          contenido = contenido.replace(marcador, marcador + "\n" + metadatos, 1)
+          archivo.write_text(contenido, encoding="utf-8")
+
+      - name: Publicar configuración
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No hay cambios pendientes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Configurar imagen de vista previa para WhatsApp"
+          git push origin main
