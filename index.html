@@ -337,78 +337,237 @@
           linear-gradient(90deg, rgba(234, 215, 167, 0.14) 1px, transparent 1px);
         background-size: 42px 42px;
       }
-      .alliance-grid {
-        display: grid;
-        grid-template-columns: minmax(280px, 0.78fr) 1.22fr;
-        gap: 70px;
-        align-items: center;
+      .alliance .container {
         position: relative;
         z-index: 1;
       }
-      .video-frame {
-        width: min(410px, 100%);
-        margin: auto;
-        padding: 10px;
-        border-radius: 36px;
-        background: linear-gradient(
-          145deg,
-          rgba(234, 215, 167, 0.92),
-          rgba(199, 164, 91, 0.16)
-        );
-        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.44);
+      .alliance-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+        gap: 64px;
+        align-items: end;
       }
-      .video-frame video {
-        aspect-ratio: 9 / 16;
-        max-height: 700px;
-        object-fit: cover;
-        border-radius: 27px;
-        background: #000;
-      }
-      .video-caption {
-        padding: 13px 10px 5px;
-        color: #d6d2c8;
-        font-size: 0.82rem;
-        text-align: center;
-      }
-      .alliance-copy h2 {
-        max-width: 720px;
+      .alliance-intro h2 {
+        max-width: 820px;
         margin: 16px 0 24px;
-        font-size: clamp(2.5rem, 5vw, 5rem);
-        line-height: 0.98;
+        font-size: clamp(2.65rem, 5.4vw, 5.4rem);
+        line-height: 0.96;
         letter-spacing: -0.045em;
       }
-      .alliance-copy > p {
-        max-width: 700px;
+      .alliance-intro h2 em {
+        color: var(--gold2);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+      }
+      .alliance-lead {
+        max-width: 760px;
         color: #d6d2c8;
-        font-size: 1.08rem;
+        font-size: 1.12rem;
       }
-      .alliance-copy > p strong {
+      .alliance-lead strong {
         color: var(--gold2);
       }
-      .alliance-list {
-        display: grid;
-        gap: 12px;
-        margin: 28px 0 32px;
-        padding: 0;
-        list-style: none;
+      .alliance-note {
+        padding: 30px;
+        border: 1px solid rgba(234, 215, 167, 0.2);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
       }
-      .alliance-list li {
+      .alliance-note strong {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--gold2);
+        font-size: 1.1rem;
+      }
+      .alliance-note p {
+        margin: 0;
+        color: #c8c5bd;
+      }
+      .alliance-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin-top: 54px;
+        overflow: hidden;
+        border: 1px solid rgba(234, 215, 167, 0.14);
+        border-radius: 24px;
+        background: rgba(234, 215, 167, 0.14);
+      }
+      .alliance-stat {
+        padding: 28px 22px;
+        background: rgba(8, 8, 8, 0.8);
+        text-align: center;
+      }
+      .alliance-stat strong {
+        display: block;
+        color: var(--gold2);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 3.5vw, 3.3rem);
+        font-weight: 500;
+        line-height: 1;
+      }
+      .alliance-stat span {
+        display: block;
+        margin-top: 8px;
+        color: #aaa69d;
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+      .alliance-subhead {
         display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        color: #f2f0ea;
+        justify-content: space-between;
+        align-items: end;
+        gap: 34px;
+        margin: 80px 0 28px;
       }
-      .alliance-list li:before {
-        content: "✓";
-        width: 27px;
-        height: 27px;
-        flex: 0 0 27px;
+      .alliance-subhead h3 {
+        max-width: 680px;
+        margin: 0;
+        font-size: clamp(1.9rem, 3.6vw, 3.3rem);
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+      }
+      .alliance-subhead p {
+        max-width: 430px;
+        margin: 0;
+        color: #aaa69d;
+      }
+      .alliance-media-grid {
         display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: rgba(199, 164, 91, 0.17);
+        grid-template-columns: minmax(0, 1.46fr) minmax(180px, 0.52fr) minmax(
+            180px,
+            0.52fr
+          );
+        gap: 18px;
+        align-items: start;
+      }
+      .alliance-media {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid rgba(234, 215, 167, 0.16);
+        border-radius: 24px;
+        background: #0c0c0c;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+      }
+      .alliance-media video {
+        aspect-ratio: 9 / 16;
+        max-height: 610px;
+        object-fit: cover;
+        background: #000;
+      }
+      .alliance-media--wide video {
+        aspect-ratio: 16 / 9;
+      }
+      .alliance-media figcaption {
+        min-height: 88px;
+        padding: 17px 19px 19px;
+      }
+      .alliance-media figcaption strong {
+        display: block;
+        color: #f3efe6;
+        line-height: 1.25;
+      }
+      .alliance-media figcaption span {
+        display: block;
+        margin-top: 5px;
+        color: #8f8b83;
+        font-size: 0.78rem;
+      }
+      .destination-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .destination-card,
+      .amenity-card {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 22px;
+        background: #131313;
+      }
+      .destination-card img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+      .destination-card:after,
+      .amenity-card:after {
+        content: "";
+        position: absolute;
+        inset: 38% 0 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.92));
+      }
+      .destination-card figcaption,
+      .amenity-card figcaption {
+        position: absolute;
+        z-index: 1;
+        right: 22px;
+        bottom: 19px;
+        left: 22px;
+      }
+      .destination-card small,
+      .amenity-card small {
+        display: block;
         color: var(--gold2);
-        font-weight: 900;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+      .destination-card strong,
+      .amenity-card strong {
+        display: block;
+        margin-top: 4px;
+        color: #fff;
+        font-size: 1.15rem;
+      }
+      .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+      }
+      .amenity-card img {
+        aspect-ratio: 16 / 7;
+        object-fit: cover;
+      }
+      .alliance-source {
+        margin: 14px 4px 0;
+        color: #7f7b73;
+        font-size: 0.73rem;
+        text-align: right;
+      }
+      .alliance-source a {
+        color: #b9a877;
+      }
+      .alliance-cta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 42px;
+        margin-top: 70px;
+        padding: 38px 42px;
+        border: 1px solid rgba(234, 215, 167, 0.22);
+        border-radius: 28px;
+        background: linear-gradient(
+          120deg,
+          rgba(199, 164, 91, 0.14),
+          rgba(255, 255, 255, 0.035)
+        );
+      }
+      .alliance-cta h3 {
+        margin: 0 0 6px;
+        font-size: clamp(1.65rem, 3vw, 2.65rem);
+        line-height: 1.08;
+      }
+      .alliance-cta p {
+        max-width: 650px;
+        margin: 0;
+        color: #bdb9b0;
+      }
+      .alliance-cta .btn {
+        flex: 0 0 auto;
       }
       .section-head {
         max-width: 860px;
@@ -793,6 +952,12 @@
         .gallery-grid {
           grid-template-columns: repeat(2, 1fr);
         }
+        .alliance-media-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .alliance-media--wide {
+          grid-column: 1 / -1;
+        }
         .testimonials {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -802,13 +967,21 @@
           display: none;
         }
         .hero-grid,
-        .alliance-grid,
+        .alliance-intro,
         .split,
         .contact-grid {
           grid-template-columns: 1fr;
         }
-        .alliance-grid {
-          gap: 48px;
+        .alliance-intro {
+          gap: 32px;
+        }
+        .alliance-subhead,
+        .alliance-cta {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .destination-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
         .hero-grid {
           min-height: auto;
@@ -853,6 +1026,10 @@
         .gallery-grid,
         .testimonials,
         .metrics-grid,
+        .alliance-stats,
+        .alliance-media-grid,
+        .destination-grid,
+        .amenities-grid,
         .form-grid {
           grid-template-columns: 1fr;
         }
@@ -864,8 +1041,27 @@
         .form-card {
           padding: 23px;
         }
-        .video-frame {
-          width: min(360px, 94%);
+        .alliance-media--wide {
+          grid-column: auto;
+        }
+        .alliance-media video,
+        .alliance-media--wide video {
+          aspect-ratio: 9 / 16;
+          max-height: 620px;
+        }
+        .alliance-media--wide video {
+          aspect-ratio: 16 / 9;
+        }
+        .alliance-subhead {
+          margin-top: 62px;
+        }
+        .alliance-cta {
+          margin-top: 54px;
+          padding: 28px 24px;
+        }
+        .alliance-cta .btn {
+          width: 100%;
+          text-align: center;
         }
         .gallery-grid figure,
         .gallery-grid img {
@@ -993,53 +1189,219 @@
         </div>
       </div>
       <section class="alliance" id="ciudad-maderas">
-        <div class="container alliance-grid">
-          <figure class="video-frame">
-            <video
-              controls
-              playsinline
-              preload="metadata"
-              poster="assets/ciudad-maderas-poster.jpg"
-              aria-label="Video de Ciudad Maderas"
-            >
-              <source
-                src="assets/ciudad-maderas-inversion.mp4"
-                type="video/mp4"
-              />
-              Tu navegador no puede reproducir este video.
-            </video>
-            <figcaption class="video-caption">
-              Conoce una muestra del alcance de Ciudad Maderas.
-            </figcaption>
-          </figure>
-          <div class="alliance-copy">
-            <div class="eyebrow">OJ Capital × Ciudad Maderas</div>
-            <h2>Invierte con visión. Decide con acompañamiento.</h2>
+        <div class="container">
+          <div class="alliance-intro">
+            <div>
+              <div class="eyebrow">OJ Capital × Ciudad Maderas</div>
+              <h2>32 desarrollos. Una visión que <em>cruza fronteras.</em></h2>
+              <p class="alliance-lead">
+                <strong
+                  >OJ Capital Patrimonial colabora con Ciudad Maderas</strong
+                >
+                para ayudarte a comparar ubicaciones, planes y horizontes, y
+                tomar la mejor decisión de inversión dentro del desarrollo que
+                corresponda a tus objetivos.
+              </p>
+            </div>
+            <aside class="alliance-note">
+              <strong>Patrimonio con perspectiva</strong>
+              <p>
+                Ciudad Maderas reúne desarrollos premium entre los más
+                destacados de México y consolida una presencia internacional que
+                conecta oportunidades, comunidad y calidad de vida.
+              </p>
+            </aside>
+          </div>
+
+          <div class="alliance-stats" aria-label="Alcance de Ciudad Maderas">
+            <div class="alliance-stat">
+              <strong>32</strong><span>desarrollos</span>
+            </div>
+            <div class="alliance-stat">
+              <strong>20</strong><span>ciudades en México</span>
+            </div>
+            <div class="alliance-stat">
+              <strong>4</strong><span>ciudades en Estados Unidos</span>
+            </div>
+            <div class="alliance-stat">
+              <strong>40+</strong><span>años de experiencia</span>
+            </div>
+          </div>
+
+          <div class="alliance-subhead">
+            <h3>Historias que muestran la dimensión del proyecto</h3>
             <p>
-              <strong
-                >OJ Capital Patrimonial colabora con Ciudad Maderas</strong
+              Conoce la propuesta desde tres perspectivas: alcance,
+              infraestructura de comunidad y una oportunidad concreta en León.
+            </p>
+          </div>
+          <div class="alliance-media-grid">
+            <figure class="alliance-media alliance-media--wide">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/ciudad-maderas-comunidad-poster.jpg"
+                aria-label="Video sobre comunidad e infraestructura educativa de Ciudad Maderas"
               >
-              para ayudarte a elegir la opción de inversión que mejor se adapte
-              a tus objetivos dentro de sus desarrollos.
-            </p>
+                <source
+                  src="assets/ciudad-maderas-comunidad.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <figcaption>
+                <strong>Comunidad, educación y futuro</strong>
+                <span>Infraestructura pensada para una vida integral.</span>
+              </figcaption>
+            </figure>
+            <figure class="alliance-media">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/ciudad-maderas-poster.jpg"
+                aria-label="Video sobre la presencia de Ciudad Maderas"
+              >
+                <source
+                  src="assets/ciudad-maderas-inversion.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <figcaption>
+                <strong>Alcance que inspira</strong>
+                <span>Una marca con visión más allá de las fronteras.</span>
+              </figcaption>
+            </figure>
+            <figure class="alliance-media">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/hacienda-maderas-leon-poster.jpg"
+                aria-label="Video de terrenos y casas premium en Hacienda Maderas León"
+              >
+                <source
+                  src="assets/hacienda-maderas-leon.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no puede reproducir este video.
+              </video>
+              <figcaption>
+                <strong>Hacienda Maderas León</strong>
+                <span>Terrenos, casas premium y crédito directo.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="alliance-subhead">
+            <h3>Un portafolio que conecta destinos y estilos de vida</h3>
             <p>
-              Analizamos contigo presupuesto, horizonte y necesidades; te
-              presentamos alternativas con claridad y te acompañamos durante
-              todo el proceso de decisión.
+              Desde el Bajío hasta el Caribe y la Península: ubicaciones con
+              identidad propia y amenidades para disfrutar cada etapa.
             </p>
-            <ul class="alliance-list">
-              <li>Atención personalizada y sin presiones.</li>
-              <li>Orientación para comparar desarrollos y planes.</li>
-              <li>
-                Acompañamiento directo antes, durante y después de decidir.
-              </li>
-            </ul>
+          </div>
+          <div class="destination-grid">
+            <figure class="destination-card">
+              <img
+                src="assets/ciudad-maderas-guanajuato.webp"
+                alt="Vista representativa de Guanajuato"
+                loading="lazy"
+                width="375"
+                height="580"
+              />
+              <figcaption>
+                <small>Bajío</small><strong>Guanajuato · León</strong>
+              </figcaption>
+            </figure>
+            <figure class="destination-card">
+              <img
+                src="assets/ciudad-maderas-queretaro.webp"
+                alt="Vista representativa de Querétaro"
+                loading="lazy"
+                width="375"
+                height="580"
+              />
+              <figcaption>
+                <small>Centro</small><strong>Querétaro</strong>
+              </figcaption>
+            </figure>
+            <figure class="destination-card">
+              <img
+                src="assets/ciudad-maderas-caribe.webp"
+                alt="Vista aérea de la costa del Caribe mexicano"
+                loading="lazy"
+                width="375"
+                height="580"
+              />
+              <figcaption>
+                <small>Quintana Roo</small><strong>Caribe</strong>
+              </figcaption>
+            </figure>
+            <figure class="destination-card">
+              <img
+                src="assets/ciudad-maderas-peninsula.webp"
+                alt="Vista representativa de la Península de Yucatán"
+                loading="lazy"
+                width="375"
+                height="580"
+              />
+              <figcaption>
+                <small>Yucatán</small><strong>Península</strong>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="amenities-grid">
+            <figure class="amenity-card">
+              <img
+                src="assets/ciudad-maderas-alberca.jpg"
+                alt="Alberca y arquitectura residencial de Ciudad Maderas"
+                loading="lazy"
+                width="1920"
+                height="1280"
+              />
+              <figcaption>
+                <small>Amenidades</small
+                ><strong>Experiencias para vivir</strong>
+              </figcaption>
+            </figure>
+            <figure class="amenity-card">
+              <img
+                src="assets/ciudad-maderas-padel.webp"
+                alt="Cancha de pádel de Ciudad Maderas"
+                loading="lazy"
+                width="1920"
+                height="1077"
+              />
+              <figcaption>
+                <small>Vida activa</small><strong>Espacios que conectan</strong>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="alliance-source">
+            Imágenes oficiales de
+            <a href="https://ciudadmaderas.com/" target="_blank" rel="noopener"
+              >Ciudad Maderas</a
+            >.
+          </p>
+
+          <div class="alliance-cta">
+            <div>
+              <h3>
+                El desarrollo correcto empieza con una buena conversación.
+              </h3>
+              <p>
+                Cuéntanos qué quieres construir y OJ Capital te ayudará a
+                comparar opciones con atención personalizada y sin presiones.
+              </p>
+            </div>
             <a
               class="btn btn-primary"
-              href="https://wa.me/524776466883?text=Hola%20OJ%20Capital%2C%20quiero%20conocer%20las%20opciones%20de%20inversi%C3%B3n%20disponibles%20en%20colaboraci%C3%B3n%20con%20Ciudad%20Maderas."
+              href="https://wa.me/524776466883?text=Hola%20OJ%20Capital%2C%20quiero%20comparar%20los%20desarrollos%20de%20Ciudad%20Maderas%20y%20encontrar%20la%20mejor%20opci%C3%B3n%20para%20mi%20inversi%C3%B3n."
               target="_blank"
               rel="noopener"
-              >Conocer opciones de inversión</a
+              >Recibir asesoría personalizada</a
             >
           </div>
         </div>
