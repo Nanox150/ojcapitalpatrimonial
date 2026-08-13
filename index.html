@@ -442,6 +442,11 @@
         gap: 18px;
         align-items: start;
       }
+      .alliance-media.alliance-media--principal {
+        margin-bottom: 18px;
+        border-color: rgba(234, 215, 167, 0.3);
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.36);
+      }
       .alliance-media {
         margin: 0;
         overflow: hidden;
@@ -458,6 +463,26 @@
       }
       .alliance-media--wide video {
         aspect-ratio: 16 / 9;
+      }
+      .alliance-media.alliance-media--principal video {
+        aspect-ratio: 16 / 9;
+        max-height: none;
+      }
+      .alliance-media.alliance-media--principal figcaption {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        min-height: 96px;
+        padding: 20px 24px 22px;
+      }
+      .alliance-media.alliance-media--principal figcaption strong {
+        font-size: 1.18rem;
+      }
+      .alliance-media.alliance-media--principal figcaption span {
+        max-width: 520px;
+        margin-top: 0;
+        text-align: right;
       }
       .alliance-media figcaption {
         min-height: 88px;
@@ -1044,6 +1069,14 @@
         .alliance-media--wide {
           grid-column: auto;
         }
+        .alliance-media.alliance-media--principal figcaption {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .alliance-media.alliance-media--principal figcaption span {
+          text-align: left;
+        }
         .alliance-media video,
         .alliance-media--wide video {
           aspect-ratio: 9 / 16;
@@ -1231,10 +1264,33 @@
           <div class="alliance-subhead">
             <h3>Historias que muestran la dimensión del proyecto</h3>
             <p>
-              Conoce la propuesta desde tres perspectivas: alcance,
-              infraestructura de comunidad y una oportunidad concreta en León.
+              Comienza con la visión integral de Ciudad Maderas y conoce después
+              su alcance, la infraestructura de comunidad y una oportunidad
+              concreta en León.
             </p>
           </div>
+          <figure class="alliance-media alliance-media--principal">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/somos-ciudad-maderas-poster.jpg"
+              aria-label="Video principal Somos Ciudad Maderas"
+            >
+              <source
+                src="assets/somos-ciudad-maderas-principal.mp4"
+                type="video/mp4"
+              />
+              Tu navegador no puede reproducir este video.
+            </video>
+            <figcaption>
+              <strong>Somos Ciudad Maderas</strong>
+              <span
+                >Conoce la visión, el alcance y las experiencias que distinguen
+                sus desarrollos.</span
+              >
+            </figcaption>
+          </figure>
           <div class="alliance-media-grid">
             <figure class="alliance-media alliance-media--wide">
               <video
