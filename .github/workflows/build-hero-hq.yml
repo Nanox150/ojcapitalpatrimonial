@@ -1,0 +1,41 @@
+name: Build HQ hero image
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'assets/.hero-hq30/**'
+      - '.github/workflows/build-hero-hq.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild AVIF
+        shell: bash
+        run: |
+          cat assets/.hero-hq30/part*.txt | base64 -d > assets/oj-capital-lobby-hq.avif
+          test -s assets/oj-capital-lobby-hq.avif
+          echo "Rebuilt size: $(stat -c%s assets/oj-capital-lobby-hq.avif) bytes"
+          rm -rf assets/.hero-hq30 assets/.hero-hq
+
+      - name: Commit HQ image
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Reconstruye imagen HQ de portada"
+          git push
