@@ -260,12 +260,16 @@
         color: #fff;
       }
       .hero-card {
-        background: rgba(8, 8, 8, 0.72);
-        border: 1px solid rgba(234, 215, 167, 0.28);
+        background: transparent;
+        border: none;
         border-radius: 34px;
         padding: 32px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+      .hero-card,
+      .hero-card * {
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
       }
       .hero-card .logo-wrap {
         width: 280px;
