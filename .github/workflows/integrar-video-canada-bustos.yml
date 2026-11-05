@@ -1,0 +1,33 @@
+name: Integrar video Cañada de Bustos
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_video_import/canada-de-bustos.part*"
+      - ".github/workflows/integrar-video-canada-bustos.yml"
+permissions:
+  contents: write
+jobs:
+  integrar-video:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Unir fragmentos y verificar el video
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat _video_import/canada-de-bustos.part* > assets/canada-de-bustos-2026.mp4
+          echo "1ecf1d0afb238a90baa8bb466577fac185067853263911804cc8594c6b2c55e3  assets/canada-de-bustos-2026.mp4" | sha256sum -c -
+          test "$(stat -c%s assets/canada-de-bustos-2026.mp4)" -eq 4722462
+          rm -f _video_import/canada-de-bustos.part*
+          rmdir _video_import || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Publicar video optimizado de Cañada de Bustos y retirar fragmentos"
+            git push origin HEAD:main
+          fi
