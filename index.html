@@ -680,6 +680,124 @@
         color: var(--muted);
         margin-bottom: 0;
       }
+
+      /* Proyecto destacado — Cañada de Bustos */
+      .canada-feature {
+        scroll-margin-top: 112px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        align-items: center;
+        gap: clamp(24px, 4vw, 58px);
+        margin-top: 42px;
+        padding: clamp(22px, 4vw, 46px);
+        border-radius: 32px;
+        color: #f9f7f0;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(199,164,91,.17), transparent 44%),
+          linear-gradient(145deg, #0b0d0d, #202321);
+        border: 1px solid rgba(199,164,91,.28);
+        box-shadow: 0 25px 55px rgba(0,0,0,.17);
+      }
+      .canada-feature-media { min-width: 0; }
+      .canada-video-shell {
+        min-height: 520px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 26px;
+        background: #080a09;
+        border: 1px solid rgba(234,215,167,.20);
+      }
+      .canada-video-shell video {
+        display: none;
+        width: min(100%, 330px);
+        aspect-ratio: 9/16;
+        max-height: 620px;
+        object-fit: contain;
+        background: #080808;
+        border-radius: 16px;
+      }
+      .canada-video-placeholder {
+        width: 100%;
+        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 17px;
+        padding: 34px 24px;
+        background:
+          radial-gradient(ellipse at 50% 70%, rgba(199,164,91,.22), transparent 55%),
+          repeating-radial-gradient(ellipse at 54% 96%, transparent 0 26px, rgba(199,164,91,.09) 27px 28px, transparent 29px 58px),
+          linear-gradient(155deg, #1b231b, #080a09 65%);
+      }
+      .canada-video-placeholder[hidden] { display: none; }
+      .canada-video-placeholder img {
+        width: min(215px, 65%);
+        height: auto;
+        object-fit: contain;
+        mix-blend-mode: screen;
+      }
+      .canada-placeholder-title {
+        font-size: clamp(1.65rem, 3vw, 2.2rem);
+        font-family: Georgia, 'Times New Roman', serif;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #ead7a7;
+      }
+      .canada-placeholder-subtitle { color: #dfd4be; font-size: .84rem; letter-spacing: .12em; text-transform: uppercase; }
+      .canada-video-note {
+        margin: 12px 0 0;
+        color: #c5c7bf;
+        text-align: center;
+        font-size: .80rem;
+      }
+      .canada-feature-copy .eyebrow { margin-bottom: 15px; }
+      .canada-feature h3 {
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1.08;
+        letter-spacing: -.035em;
+        color: #fff;
+        margin: 0 0 18px;
+      }
+      .canada-feature h3 span { color: var(--gold2); }
+      .canada-feature-lead { color: #d8d8d1; font-size: 1.05rem; }
+      .canada-feature-facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 12px;
+        margin: 25px 0;
+      }
+      .canada-feature-facts div {
+        padding: 17px 18px;
+        border: 1px solid rgba(234,215,167,.22);
+        background: rgba(255,255,255,.04);
+        border-radius: 18px;
+      }
+      .canada-feature-facts strong { display:block; color: var(--gold2); font-size: 1.14rem; }
+      .canada-feature-facts small { display:block; color:#c0beb6; font-size:.78rem; }
+      .canada-feature .btn-primary { display:inline-flex; align-items:center; justify-content:center; margin-top:6px; }
+      .canada-disclaimer { margin:22px 0 0; color:#b7b9b5; font-size:.79rem; line-height:1.6; }
+      .canada-property-link {
+        display:inline-block;
+        margin-top:14px;
+        font-size:.87rem;
+        font-weight:800;
+        color:#705420;
+        text-decoration:underline;
+        text-underline-offset:3px;
+      }
+      @media (max-width: 900px) {
+        .canada-feature { grid-template-columns: 1fr; }
+        .canada-video-shell, .canada-video-placeholder { min-height: 480px; }
+      }
+      @media (max-width: 500px) {
+        .canada-feature-facts { grid-template-columns: 1fr; }
+        .canada-video-shell, .canada-video-placeholder { min-height: 400px; }
+        .canada-feature { margin-top: 28px; border-radius: 24px; }
+      }
       .gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1586,6 +1704,7 @@
                   Lotes, superficies y hectáreas con vocación patrimonial o
                   estratégica.
                 </p>
+                <a class="canada-property-link" href="#canada-de-bustos">Ver proyecto destacado: Cañada de Bustos</a>
               </div>
             </article>
             <article class="property">
@@ -1617,6 +1736,48 @@
               </div>
             </article>
           </div>
+          <section class="canada-feature" id="canada-de-bustos" aria-labelledby="canada-titulo">
+            <div class="canada-feature-media">
+              <div class="canada-video-shell">
+                <div class="canada-video-placeholder" id="canada-video-placeholder">
+                  <img src="assets/logo-oj-capital.webp" alt="OJ Capital Patrimonial" loading="lazy" />
+                  <div class="canada-placeholder-title">Un terreno.<br />Una nueva visión.</div>
+                  <div class="canada-placeholder-subtitle">Cañada de Bustos · Guanajuato</div>
+                </div>
+                <video id="canada-video" controls playsinline preload="metadata"
+                  aria-label="Video de presentación del terreno de Cañada de Bustos"
+                  src="assets/canada-de-bustos-2026.mp4">
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <p class="canada-video-note">Presentación audiovisual de 40 segundos · OJ Capital Patrimonial</p>
+            </div>
+            <div class="canada-feature-copy">
+              <div class="eyebrow">Terrenos · Oportunidad destacada</div>
+              <h3 id="canada-titulo">Cañada de Bustos.<br /><span>Tierra con potencial.</span></h3>
+              <p class="canada-feature-lead">
+                Una superficie para analizar proyectos de inversión y desarrollo
+                patrimonial en Cañada de Bustos, Guanajuato. Conoce su entorno,
+                dimensión y posibilidades con atención directa y personalizada.
+              </p>
+              <div class="canada-feature-facts">
+                <div><strong>25,991.52 m²</strong><small>Superficie del terreno</small></div>
+                <div><strong>Guanajuato</strong><small>Cañada de Bustos · Gto.</small></div>
+                <div><strong>Inversión</strong><small>Perfil patrimonial / desarrolladores</small></div>
+                <div><strong>Visitas</strong><small>Solicita información y recorrido</small></div>
+              </div>
+              <a class="btn btn-primary" target="_blank" rel="noopener"
+                href="https://wa.me/524776466883?text=Hola%2C%20me%20interesa%20el%20terreno%20de%20Ca%C3%B1ada%20de%20Bustos%20de%2025%2C991.52%20m%C2%B2.%20Quisiera%20recibir%20la%20ficha%20y%20agendar%20un%20recorrido.">
+                Solicitar ficha y agendar recorrido
+              </a>
+              <p class="canada-disclaimer">
+                Las imágenes de urbanización o edificaciones que aparecen en el
+                material audiovisual son visualizaciones conceptuales, no obras
+                ejecutadas. La viabilidad, documentación, usos y servicios del
+                predio deben verificarse en el proceso de evaluación.
+              </p>
+            </div>
+          </section>
         </div>
       </section>
       <section id="galeria">
@@ -1884,6 +2045,21 @@
           d="M19.11 17.21c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.83-.74-1.39-1.65-1.56-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46h-.52c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.72 1.14 2.91c.14.19 1.96 2.99 4.75 4.19.66.29 1.18.46 1.58.59.66.21 1.27.18 1.74.11.53-.08 1.65-.67 1.88-1.31.23-.64.23-1.18.16-1.3-.07-.12-.25-.19-.53-.33M16.02 4.5c-6.34 0-11.48 5.13-11.48 11.46 0 2.03.53 4.02 1.54 5.77L4.5 27.5l5.92-1.55a11.45 11.45 0 0 0 5.6 1.43h.01c6.33 0 11.47-5.14 11.47-11.47 0-3.07-1.19-5.95-3.36-8.12A11.4 11.4 0 0 0 16.02 4.5m0 20.93h-.01a9.53 9.53 0 0 1-4.86-1.33l-.35-.21-3.51.92.94-3.42-.23-.35a9.49 9.49 0 0 1-1.46-5.08c0-5.25 4.27-9.52 9.52-9.52 2.54 0 4.94.99 6.73 2.79 1.8 1.8 2.79 4.19 2.79 6.73 0 5.25-4.28 9.52-9.53 9.52"
         ></path></svg
     ></a>
+    <script>
+      (function () {
+        const video = document.getElementById("canada-video");
+        const placeholder = document.getElementById("canada-video-placeholder");
+        if (!video || !placeholder) return;
+        video.addEventListener("loadedmetadata", function () {
+          placeholder.hidden = true;
+          video.style.display = "block";
+        }, { once: true });
+        video.addEventListener("error", function () {
+          video.style.display = "none";
+          placeholder.hidden = false;
+        });
+      })();
+    </script>
     <script>
       document
         .getElementById("leadForm")
