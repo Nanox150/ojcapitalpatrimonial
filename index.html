@@ -1232,6 +1232,21 @@
           height: 31px;
         }
       }
+    
+      .door-profile {padding:70px 0;background:var(--paper)}
+      .door-panel {display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,65px);align-items:center;border-radius:28px;padding:clamp(24px,5vw,62px);color:#fff;background:radial-gradient(ellipse at top right,#39301f,transparent 58%),linear-gradient(135deg,#0a0a0a,#191919);box-shadow:var(--shadow)}
+      .door-panel h2 {font-size:clamp(2.15rem,4vw,3.6rem);line-height:1.05;letter-spacing:-.045em;margin:16px 0}
+      .door-panel p {color:#dedbd3;max-width:58ch}
+      .door-panel .actions {margin-top:24px}
+      .door-card {padding:clamp(18px,3vw,32px);background:rgba(255,255,255,.055);border:1px solid rgba(234,215,167,.28);border-radius:20px}
+      .door-card .brand-logo {width:min(220px,100%);margin:0 0 18px}
+      .door-card h3 {margin:0 0 4px;font-size:1.25rem}
+      .door-card small {color:var(--gold2)}
+      .door-features {list-style:none;padding:0;margin:20px 0 0}
+      .door-features li {padding:10px 0;border-top:1px solid rgba(255,255,255,.12);color:#f1eee7}
+      .door-features li::before {content:"✓";color:var(--gold2);margin-right:10px}
+      .door-profile[hidden], [data-door-nav][hidden], [data-door-link][hidden] {display:none!important}
+      @media(max-width:760px){.door-panel{grid-template-columns:1fr}.door-panel .actions .btn{width:100%}}
     </style>
       <!-- hero-clean-v2: 2026-09-25 -->
   </head>
@@ -1264,6 +1279,7 @@
           ><a href="#portafolio">Portafolio</a
           ><a href="#experiencias">Experiencias</a
           ><a href="#contacto" class="nav-cta">Hablar con un asesor</a>
+        <a href="#perfil-door" data-door-nav hidden>Catálogo Door</a>
         </nav>
       </div>
     </header>
@@ -1637,6 +1653,26 @@
             </article>
           </div>
         </div>
+      </section>
+      
+      <!-- Configurar data-door-url con el enlace público verificado del perfil. -->
+      <section class="door-profile" id="perfil-door" aria-labelledby="door-titulo" data-door-url="" hidden>
+        <div class="container"><div class="door-panel">
+          <div>
+            <div class="eyebrow">Catálogo digital · Door.mx</div>
+            <h2 id="door-titulo">Explora nuestras propiedades y oportunidades.</h2>
+            <p>Conoce el perfil inmobiliario de OJ Capital Patrimonial en Door. Consulta nuestro catálogo publicado y contáctanos para recibir asesoría personalizada o explorar oportunidades de colaboración profesional.</p>
+            <div class="actions">
+              <a class="btn btn-primary" data-door-link target="_blank" rel="noopener noreferrer" hidden>Ver perfil y propiedades ↗</a>
+              <a class="btn btn-secondary" href="https://wa.me/524776466883?text=Hola%20OJ%20Capital%2C%20me%20interesa%20conocer%20sus%20propiedades%20y%20oportunidades." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+            </div>
+          </div>
+          <div class="door-card">
+            <img class="brand-logo" src="assets/logo-oj-capital.webp" alt="OJ Capital Patrimonial Inmobiliario" loading="lazy" />
+            <h3>OJ Capital Patrimonial</h3><small>León, Guanajuato · Bienes raíces</small>
+            <ul class="door-features"><li>Venta y renta de propiedades</li><li>Terrenos y oportunidades de inversión</li><li>Alianzas entre profesionales inmobiliarios</li></ul>
+          </div>
+        </div></div>
       </section>
       <section class="portfolio" id="portafolio">
         <div class="container">
@@ -2102,6 +2138,22 @@
           "addressCountry": "MX"
         }
       }
+    </script>
+  
+    <script>
+      (function () {
+        const section = document.getElementById("perfil-door");
+        if (!section || !section.dataset.doorUrl) return;
+        try {
+          const url = new URL(section.dataset.doorUrl);
+          if (url.protocol !== "https:" || !(url.hostname === "door.mx" || url.hostname.endsWith(".door.mx")) || (url.pathname === "/" && !url.search)) return;
+          const link = section.querySelector("[data-door-link]");
+          link.href = url.href;
+          link.hidden = false;
+          section.hidden = false;
+          document.querySelectorAll("[data-door-nav]").forEach(function (item) { item.hidden = false; });
+        } catch (error) { /* No mostrar una liga sin configurar. */ }
+      })();
     </script>
   </body>
 </html>
