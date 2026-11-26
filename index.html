@@ -1023,20 +1023,18 @@
         width: 100%;
         cursor: pointer;
       }
-      .social-directory {max-width:760px;margin:0 auto 26px;padding:24px 16px 28px;border-bottom:1px solid rgba(255,255,255,.13)}
-      .social-directory h2 {color:#fff;font-size:clamp(1.35rem,3vw,1.8rem);margin:0 0 8px}
-      .social-directory p {color:#c8c3ba;font-size:.95rem;margin:0 auto 18px;max-width:55ch}
-      .social-network-list {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:0 0 20px}
-      .social-network-list li {min-width:0}
-      .social-network-list a {display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid rgba(234,215,167,.35);border-radius:12px;padding:12px 8px;color:#f3e3bf;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
-      .social-network-list a:hover,.social-network-list a:focus-visible {background:#e5cc92;color:#101010;border-color:#e5cc92}
+      .social-directory {max-width:760px;margin:14px auto 20px;padding:15px 0 18px;border-top:1px solid rgba(234,215,167,.25);border-bottom:1px solid rgba(234,215,167,.25)}
+      .social-directory h2 {color:#f3e3bf;font-size:1rem;letter-spacing:.025em;margin:0 0 12px}
+      .social-network-list {display:flex;flex-wrap:wrap;justify-content:center;gap:8px 12px;list-style:none;padding:0;margin:0 0 12px}
+      .social-network-list li {margin:0;min-width:0}
+      .social-network-list a {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid rgba(234,215,167,.45);border-radius:8px;padding:9px 14px;color:#f3e3bf;font-size:.9rem;font-weight:600;text-decoration:none;transition:background .2s,color .2s}
+      .social-network-list a:hover,.social-network-list a:focus-visible {background:#e5cc92;color:#101010}
       .social-network-list a:focus-visible {outline:2px solid #fff;outline-offset:3px}
-      .social-network-list .social-arrow {font-size:.8em;opacity:.75}
-      @media(prefers-reduced-motion:reduce){.social-network-list a{transition:none}}
       .social-network-list svg {width:21px;height:21px;flex:none;fill:currentColor}
-      .social-directory .social-door-link {display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border:1px solid #d9bb79;border-radius:999px;color:#f3e3bf;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s,color .2s}
-      .social-directory .social-door-link:hover,.social-directory .social-door-link:focus-visible {background:#e5cc92;color:#101010}
-      @media(max-width:580px){.social-network-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      .social-network-list .social-arrow {font-size:.8em;opacity:.75}
+      .social-directory .social-door-link {display:inline-flex;align-items:center;gap:6px;min-height:44px;color:#e5cc92;text-decoration:underline;text-underline-offset:3px;font-size:.85rem}
+      @media(max-width:580px){.social-network-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:350px;margin:0 auto 12px}.social-network-list a{width:100%;padding:9px 8px}.site-footer{padding-bottom:100px}}
+      @media(prefers-reduced-motion:reduce){.social-network-list a{transition:none}}
       .site-footer {
         padding: 34px 0;
         background: #020202;
@@ -2071,9 +2069,15 @@
     </main>
     <footer class="site-footer">
       <div class="container">
+        <div class="logo-wrap">
+          <img
+            class="brand-logo"
+            src="assets/logo-oj-capital.webp"
+            alt="OJ Capital Patrimonial Inmobiliario"
+          />
+        </div>
         <section class="social-directory" id="redes-sociales" aria-labelledby="social-title">
-          <h2 id="social-title">Conecta con OJ Capital Patrimonial</h2>
-          <p>Síguenos en nuestras redes sociales para conocer propiedades, oportunidades de inversión y novedades inmobiliarias.</p>
+          <h2 id="social-title">Síguenos en nuestras redes sociales</h2>
           <ul class="social-network-list" aria-label="Nuestras redes sociales">
             <li><a href="https://www.facebook.com/share/1TYpZhjz3b/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5H17V4a20 20 0 0 0-2.3-.1C12.4 3.9 11 5.3 11 7.8V10H8.4v3H11v8z"/></svg><span>Facebook</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
             <li><a href="https://www.instagram.com/oj_capital_patrimonial?bqrl=ODUxeGJpNnFmMGF5" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.8" r="1.25"/></svg><span>Instagram</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
@@ -2082,13 +2086,6 @@
           </ul>
           <a class="social-door-link" href="https://ver.door.mx/tarjetaPresentacion?idAgente=gN4x3O1I4sSqkh2AkA7uBkNYtDe2" target="_blank" rel="noopener noreferrer">Ver tarjeta digital en Door.mx <span aria-hidden="true">↗</span></a>
         </section>
-        <div class="logo-wrap">
-          <img
-            class="brand-logo"
-            src="assets/logo-oj-capital.webp"
-            alt="OJ Capital Patrimonial Inmobiliario"
-          />
-        </div>
         <div>
           © 2026 OJ Capital Patrimonial Inmobiliario · León, Guanajuato
         </div>
