@@ -1027,7 +1027,12 @@
       .social-directory h2 {color:#fff;font-size:clamp(1.35rem,3vw,1.8rem);margin:0 0 8px}
       .social-directory p {color:#c8c3ba;font-size:.95rem;margin:0 auto 18px;max-width:55ch}
       .social-network-list {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:0 0 20px}
-      .social-network-list li {display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(234,215,167,.25);border-radius:12px;padding:12px 8px;color:#f3e3bf;font-size:.88rem;font-weight:600}
+      .social-network-list li {min-width:0}
+      .social-network-list a {display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid rgba(234,215,167,.35);border-radius:12px;padding:12px 8px;color:#f3e3bf;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+      .social-network-list a:hover,.social-network-list a:focus-visible {background:#e5cc92;color:#101010;border-color:#e5cc92}
+      .social-network-list a:focus-visible {outline:2px solid #fff;outline-offset:3px}
+      .social-network-list .social-arrow {font-size:.8em;opacity:.75}
+      @media(prefers-reduced-motion:reduce){.social-network-list a{transition:none}}
       .social-network-list svg {width:21px;height:21px;flex:none;fill:currentColor}
       .social-directory .social-door-link {display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border:1px solid #d9bb79;border-radius:999px;color:#f3e3bf;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s,color .2s}
       .social-directory .social-door-link:hover,.social-directory .social-door-link:focus-visible {background:#e5cc92;color:#101010}
@@ -2068,14 +2073,14 @@
       <div class="container">
         <section class="social-directory" id="redes-sociales" aria-labelledby="social-title">
           <h2 id="social-title">Conecta con OJ Capital Patrimonial</h2>
-          <p>Encuentra nuestras redes sociales en nuestra tarjeta digital de Door.mx.</p>
-          <ul class="social-network-list" aria-label="Redes sociales disponibles en nuestra tarjeta digital">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5H17V4a20 20 0 0 0-2.3-.1C12.4 3.9 11 5.3 11 7.8V10H8.4v3H11v8z"/></svg><span>Facebook</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.8" r="1.25"/></svg><span>Instagram</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h3c.3 2.2 1.8 3.8 4 4.1v3.1a8.1 8.1 0 0 1-4-1.2v7.1a5.9 5.9 0 1 1-5.9-5.9h.8v3.2a2.8 2.8 0 1 0 2.1 2.7z"/></svg><span>TikTok</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.4" cy="8" r="1.2"/><path d="M6.2 10h2.4v7.8H6.2zm4.3 0h2.3v1c.5-.8 1.3-1.2 2.4-1.2 2.1 0 3 1.4 3 3.5v4.5h-2.4v-4.1c0-1-.4-1.7-1.3-1.7s-1.5.7-1.5 1.7v4.1h-2.5z"/></svg><span>LinkedIn</span></li>
+          <p>Síguenos en nuestras redes sociales para conocer propiedades, oportunidades de inversión y novedades inmobiliarias.</p>
+          <ul class="social-network-list" aria-label="Nuestras redes sociales">
+            <li><a href="https://www.facebook.com/share/1TYpZhjz3b/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5H17V4a20 20 0 0 0-2.3-.1C12.4 3.9 11 5.3 11 7.8V10H8.4v3H11v8z"/></svg><span>Facebook</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.instagram.com/oj_capital_patrimonial?bqrl=ODUxeGJpNnFmMGF5" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.8" r="1.25"/></svg><span>Instagram</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://vm.tiktok.com/ZS9PXmqaX2Axc-yjq28/" target="_blank" rel="noopener noreferrer" aria-label="Visitar TikTok (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h3c.3 2.2 1.8 3.8 4 4.1v3.1a8.1 8.1 0 0 1-4-1.2v7.1a5.9 5.9 0 1 1-5.9-5.9h.8v3.2a2.8 2.8 0 1 0 2.1 2.7z"/></svg><span>TikTok</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/oscar-jaime-5b3953430?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn (abre en una nueva pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.4" cy="8" r="1.2"/><path d="M6.2 10h2.4v7.8H6.2zm4.3 0h2.3v1c.5-.8 1.3-1.2 2.4-1.2 2.1 0 3 1.4 3 3.5v4.5h-2.4v-4.1c0-1-.4-1.7-1.3-1.7s-1.5.7-1.5 1.7v4.1h-2.5z"/></svg><span>LinkedIn</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
           </ul>
-          <a class="social-door-link" href="https://ver.door.mx/tarjetaPresentacion?idAgente=gN4x3O1I4sSqkh2AkA7uBkNYtDe2" target="_blank" rel="noopener noreferrer">Abrir tarjeta y consultar redes <span aria-hidden="true">↗</span></a>
+          <a class="social-door-link" href="https://ver.door.mx/tarjetaPresentacion?idAgente=gN4x3O1I4sSqkh2AkA7uBkNYtDe2" target="_blank" rel="noopener noreferrer">Ver tarjeta digital en Door.mx <span aria-hidden="true">↗</span></a>
         </section>
         <div class="logo-wrap">
           <img
